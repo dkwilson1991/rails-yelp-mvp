@@ -1,0 +1,8 @@
+<div class="card-product text-center">
+  <%= image_tag "https://loremflickr.com/320/240/#{restaurant.category}&#{rand(1000)}" %>
+  <div class="card-product-infos justify-content-center">
+    <h2><%= link_to restaurant.name, restaurant_path(restaurant), style: 'color: gray;text-decoration:none;' %></h2>
+    <p><%= restaurant.address %></p>
+    <p><%= restaurant.category %></p>
+  </div>
+</div>

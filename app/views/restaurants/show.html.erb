@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <%= link_to '<- Back', restaurants_path(@restaurant), class: 'btn btn-light' %>
+</div>
+<div class="card width-50 text-center">
+  <div class="card-product text-center">
+    <div class="card-product-infos justify-content-center">
+      <%= image_tag "https://loremflickr.com/320/240/#{@restaurant.category}" %>
+      <div class="card-product-infos">
+        <h2><%= @restaurant.name %></h2>
+        <p><%= @restaurant.category %></p>
+        <p><%= @restaurant.address %></p>
+        <p><%= @restaurant.phone_number %></p>
+        <% @restaurant.reviews.each do |review| %>
+          <%= review.content%>
+          <div class="d-flex justify-content-center">
+            <% review.rating.times do %>
+              <p class="text-warning"><i class="fas fa-star"></i></p>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <p class="text-warning"><i class="far fa-star"></i></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
